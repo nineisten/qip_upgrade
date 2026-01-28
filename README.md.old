@@ -1,0 +1,96 @@
+# QUBIC ICO PORTAL UPGRADE + PORTAL(QSWAP) INTEGRATION
+
+## Introduction 
+- Here we will outline the path forward for Both QIP and the integration with QSWAP and the PORTAL project. By creating and integrated experience, together we can offer builders the resources to help launch sustainable projects on the QUBIC eco-system. This means More Growth, less project abandonment, and increased trust among the entire QUBIC landscape. 
+
+## Qubic Portal's Primary Driver for Integration
+
+1. Increase LPs so we’d like an ICO page where LP is created immediately after ICO
+(QX fees and LP creation fees paid out of ICO funds)
+2. Dead projects dont do volume. Pump
+And Dumps are temporary profit and ten dead. Or like Matilda where no funds for LP. So mechanics like staggered release of raised funds can keep projects around and build community.
+3. As Qu price grows, minting on QX solely will become unaffordable.
+4. Need to ensure a paid dev so project can keep being updated.
+
+## Qubic ICO Portal's Primary Driver For Upgrade & Integration
+1. Our Primary Driver from QIP:
+2. Create a consistent stream of ICO launches
+3. Help create a trusted Incubation environment which can Help launch more sustainable trusted projects within the QUBIC eco-system.
+4. Upgrade QIP to include a Server api which can enable QIP to provide more detailed information on projects
+5. creating a options that can enhance User Experience on both QIP and PORTAL platforms.
+6. Creates multiple avenues for projects to launch on chain with minimal barriers to entry. (I.e, Bigger more defined projects use the QIP utility directly, while projects with limited experience or resources can launch with portal making the eco-system approachable by all levels of developers).
+7. Onboard Official Team to maintain these platforms in perpetuity.
+
+
+## Core Objectives 
+Create one Unified project launchpad called "Portal" which will achieved by calling the QX QSWAP & QIP smart contracts built on Qubic. the Idea is to create resources for startup project wishing to build within the Qubic eco system. THis stands to solve Several problems.
+1. Community Voting and resulting in early validation for approved projects.
+2. ICO mechanism allows for free and fair distributions of revenue, for project funding and LP initialization
+3. Trusted environment for projects to drive community traction by providing resources for Marketing & development. 
+
+## Portal User flow 
+1. Connect wallet 
+2. Project details form:
+    - Project Name
+    - SC 
+        - Ticker
+        - redistributions
+            - % for SC Holders
+            - additional allocations
+    - Token 
+        - ticker 
+        - Tokenomics 
+    - project team
+        - founder(s)
+        - operations
+        - developer(s)
+        - marketing
+        - other
+    - development type
+        - Token
+        - Smart Contract
+        - Hybrid
+    - project description
+    - Estimated Fundraising Goal
+    - Project Wallets
+        - default wallet 
+        - percentage
+        - vesting period
+        - staggered release percentages (i.e. 5% released each month of vesting period)
+    - project links
+        - github repo (required)
+        - socials
+        - website
+        - discord 
+    - Project initiation fee (200m)
+3. Approve in wallet
+4. Project Goes Live 
+5. Community voting 
+    - pay 1m Qubic to vote yes
+    - pay 0 Qubic to vote no
+    - voting closes after 1 epoch
+    - funds are returned if projec gets declined
+6. Approved token projects go to ICO phase
+    - Voting fees are reapplied to QX Issuance fee (1b Qubic)
+    - remaining Fee revenue then purchases supply of ICO @ phase one.
+    - Acquired tokens are porportionally distributed to each participating wallet
+    - ICO progresses through Phase 2 & 3. 
+    - remaining tokens automatically get locked in LP
+    - ICO revenue is split between Incubator fund & LP. 
+7. Funds are distributed to Project team in phases based on benchmarks being met.
+8. Once project development concludes then remaining funds are locked into the vesting phase where fund release is staggered to the percentage rate specicfied at signup
+    - each release of funds, must be signed by default wallet
+    - once Vesting period congludes The remainder of funds are released to the default wallet. 
+    - tokens and funds that do not get approved for release by default wallet will automatically be locked into LP after 90 days of final release. 
+
+## IMPORTANT
+This approach requires specific uprgrades to the QIP SC.
+These upgrades will offer QIP and Portal Users more options.
+
+## FAQ
+- Q: Is QIP still going to be accessible as a standalone utility? 
+- A: Yes. The upgrades and integration will add usability for QIP and portal alike. 
+
+- Q: Why do we need both portal and QIP?
+- A: QIP is a Straighforward utility which would benefit Projects with larger budgets and more resources. PORTAL on the other hand invites community to participate in crowdfunding projects with minimal resources and startup capital. 
+
