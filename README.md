@@ -15,10 +15,10 @@ Together, these features make it significantly easier for investors to evaluate 
 
 **A. ICO Setup Fee**  
 - Mandatory 100 million Qubic fee paid by the issuer at ICO creation.  
-- Fee is automatically routed to the smart-contract (SC) reserve to bootstrap liquidity/operations.
+- Fee is automatically routed to the smart-contract (SC) reserve to feed execution fees.
 
 **B. Development Fund Allocation**  
-- Add a fixed extra 2.5 % slice to every QIP SC redistribution (on top of existing splits).  
+- Add a fixed extra 2.5 % slice to QIP SC redistribution in addition to existing 5%.  
 - This 2.5 % flows to a dedicated Development Fund address/wallet.
 
 **C. Vesting Periods (Optional but per-wallet configurable)**  
