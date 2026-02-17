@@ -93,8 +93,7 @@ for transparency]
     L --> M[Investor gives thumbs up/down]
     M --> N[Calculate & display Trust Score
 based on all criteria above]
-    L --> O[Participate → Buy tokens
-(vesting rules applied per wallet)]
+    L --> O[Participate → Buy tokens - vesting rules applied per wallet]
 
     O --> P[ICO ends]
 
