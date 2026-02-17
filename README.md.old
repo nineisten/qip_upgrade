@@ -87,6 +87,20 @@ Create one Unified project launchpad called "Portal" which will achieved by call
 This approach requires specific uprgrades to the QIP SC.
 These upgrades will offer QIP and Portal Users more options.
 
+## Proposed QIP upgrades
+1. Fix indexing bug
+2. Initialize fees (100m Qubic for ICO Setup)
+3. Adjust SC Re-distributions (5% Development Fund / 5% SC holders)
+4. Create additional Options:
+    - Vesting Periods (lock qubic revenue & remaining tokens for custom time periods. example: lock revenue & remaining tokens for 3 months following ICO, releasing only 5% monthly until 90 day period is complete) 
+    - note: each release must be wallet approved. any amount left unapproved for 90 days goes to LP.
+    - Optional Benchmark based fund disbursements(example: Once ICO concludes, Release (X) qubic to begin project. Once user-defined Milestones are met then Release (X) qubic to progress to next phase, etc.)
+5. Burn Mechanism: burn (X)% of Token supply instead of returning to wallet.
+
+## Conclusion
+
+
+
 ## FAQ
 - Q: Is QIP still going to be accessible as a standalone utility? 
 - A: Yes. The upgrades and integration will add usability for QIP and portal alike. 
