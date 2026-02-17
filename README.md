@@ -105,6 +105,9 @@ based on all criteria above]
     Q --> T[Dev Fund receives extra 2.5 % of any QIP redistributions]
 
     R & S & T --> End[End: All parties receive funds/tokens]
+
+
+    
 ```
 
 ### Conclusion
