@@ -54,47 +54,60 @@ Together, these features make it significantly easier for investors to evaluate 
   + Community thumbs-up count → +  
   + Community thumbs-down count → –  
 
-### 2. User Flow (Mermaid Flowchart)
+### 2. User Flow 
 
 ```mermaid
-%%{init: {'theme': 'neutral', 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#666666', 'secondaryColor': '#f0f0f0', 'tertiaryColor': '#e0e0e0'}}}%%
 flowchart TD
     A[Start: Issuer logs into platform] 
     --> B[Create New ICO]
 
-    B --> C[Upload project details<br/>• Thumbnail<br/>• Links & description<br/>• Issuer information]
-    C --> D[Pay mandatory setup fee<br/>100 m Qubic → SC reserve]
+    B --> C[Upload project details
+• Thumbnail
+• Links & description
+• Issuer information]
+    C --> D[Pay mandatory setup fee
+100 m Qubic → SC reserve]
 
     D --> E{Optional features}
-    E --> F[Configure vesting<br/>• Tokens & revenue wallets<br/>• Periods: 30d / 3mo / 6mo / 1y / 1.5y / custom<br/>• Staggered epoch release]
-    E --> G[Enable burn mechanism<br/>Remaining supply → burn address]
-    E --> H[Add multiple revenue wallets<br/>(for transparency)]
+    E --> F[Configure vesting
+• Tokens & revenue wallets
+• Periods: 30d / 3mo / 6mo / 1y / 1.5y / custom
+• Staggered epoch release]
+    E --> G[Enable burn mechanism
+Remaining supply → burn address]
+    E --> H[Add multiple revenue wallets
+(for transparency)]
 
     F & G & H --> I[Review & Launch ICO]
 
     I --> J[ICO Live on platform]
 
-    J --> K[Investor browses ICO list<br/>• Sorted/filtered by Trust Score]
-    K --> L[View ICO page<br/>• Thumbnail + full details<br/>• Issuer info<br/>• QIP dividend tracker<br/>• Phase-end snapshot reports<br/>• Live thumbs up/down]
+    J --> K[Investor browses ICO list
+• Sorted/filtered by Trust Score]
+    K --> L[View ICO page
+• Thumbnail + full details
+• Issuer info
+• QIP dividend tracker
+• Phase-end snapshot reports
+• Live thumbs up/down]
     L --> M[Investor gives thumbs up/down]
-    M --> N[Calculate & display Trust Score<br/>based on all criteria above]
-    L --> O[Participate → Buy tokens<br/>(vesting rules applied per wallet)]
+    M --> N[Calculate & display Trust Score
+based on all criteria above]
+    L --> O[Participate → Buy tokens
+(vesting rules applied per wallet)]
 
     O --> P[ICO ends]
 
     P --> Q{Post-ICO actions}
     Q --> R[If burn enabled → remaining tokens burned]
-    Q --> S[Apply vesting schedule<br/>• Staggered revenue release per epoch<br/>• Final unlock of remaining tokens]
+    Q --> S[Apply vesting schedule
+• Staggered revenue release per epoch
+• Final unlock of remaining tokens]
     Q --> T[Dev Fund receives extra 2.5 % of any QIP redistributions]
 
     R & S & T --> End[End: All parties receive funds/tokens]
-
-    classDef box fill:#ffffff,stroke:#000000,stroke-width:2px,color:#000000,rx:8,ry:8
-    class A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,End box
-
-    style E fill:#f0f0f0,stroke:#666666
-    style N fill:#e0e0e0,stroke:#666666
 ```
+
 ### Conclusion
 
 The proposed upgrades represent a balanced step toward professionalizing the Qubic ICO ecosystem without imposing excessive mandatory restrictions on issuers. By combining on-chain mechanisms (fee → reserve, vesting, burn, dev fund) with off-chain trust signals (metadata, community ratings, Trust Score), the platform can foster higher-quality projects, reduce rug-pull incentives, and increase overall participant confidence.
