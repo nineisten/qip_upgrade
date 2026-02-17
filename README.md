@@ -75,8 +75,8 @@ flowchart TD
 • Staggered epoch release]
     E --> G[Enable burn mechanism
 Remaining supply → burn address]
-    E --> H[Add multiple revenue wallets
-(for transparency)]
+    E --> H[Add multiple revenue wallets - 
+for transparency]
 
     F & G & H --> I[Review & Launch ICO]
 
