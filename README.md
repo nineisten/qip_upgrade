@@ -26,7 +26,7 @@ Together, these features make it significantly easier for investors to evaluate 
 - Pre-defined options: 30 days, 3 months, 6 months, 1 year, 1.5 years + custom duration.  
 - Revenue vesting: releases staggered per epoch; full remaining balance unlocked at end of period.  
 - Token vesting: all unsold/remaining tokens stay locked until the final epoch of the period.  
-- Can be set independently for each participating wallet (issuer can assign different vesting to different buyers or revenue streams).
+- Can be set independently for each participating wallet (issuer can assign different vesting to different wallets including Token issuer wallet).
 
 **D. Optional Burn Mechanism**  
 - At ICO end, instead of returning unsold tokens to the issuer, the contract can send them directly to a designated burn address (configurable at launch).  
@@ -107,7 +107,7 @@ based on all criteria above]
     R & S & T --> End[End: All parties receive funds/tokens]
 
 
-    
+
 ```
 
 ### Conclusion
