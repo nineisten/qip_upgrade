@@ -1,4 +1,7 @@
 
+# QIP Upgrade
+**v2**
+
 ## Summary
 
 This outline introduces a comprehensive set of enhancements to the Qubic ICO platform aimed at improving trust, transparency, long-term alignment, and ecosystem sustainability. Key additions include:
