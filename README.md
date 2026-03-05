@@ -1,5 +1,5 @@
 
-# QIP Upgrade
+# QIP Upgrade Outline
 **Qubic ICO Portal v2**
 
 ## Summary
