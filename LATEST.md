@@ -27,11 +27,12 @@ These additions directly address key pain points: teams need funds to build deli
 
 ### A. Mandatory ICO Setup Fee
 - Issuer pays **1 Billion Qubic** when creating an ICO
-- Fee automatically seeds the smart-contract reserve / Treasury for execution fees
+- 10% Fee automatically seeds the smart-contract reserve
+- 90% redistributed to SC holders
 
 ### B. Development Fund
 - Add permanent **2%** slice allocated for dev fund
-- reduce **5%** to **3%** QIP redistributions for SC holders
+- reduce **5%** QIP redistributions for SC holders to **3%** 
 - Flows to dedicated dev fund wallet for ongoing platform/protocol sustainability
 
 ### C. Treasury & Enhanced Vesting + Clawback + Dev Access
