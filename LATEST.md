@@ -46,7 +46,7 @@ All raised funds and future revenue route through a **dedicated per-ICO Treasury
 - Different rules per wallet (including issuer's)
 
 #### 2. Optional Clawback / Rug-Pull Protection
-- Issuer enables at launch (default off); sets **Clawback %** (recommended 30–50%)
+- Issuer enables at launch (default = on); sets **Clawback %** (recommended 30–50%)
 - Portion held in Clawback Escrow sub-wallet
 - Triggers (chosen at launch):
   - Investor vote: 65% supermajority of token holders (window: first 12 months post-ICO)
