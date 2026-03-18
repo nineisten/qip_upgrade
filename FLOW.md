@@ -1,4 +1,4 @@
-```
+```mermaid
 flowchart TD
     Start["`Start: Issuer logs into platform`"] --> Create["`Create New ICO`"]
 
