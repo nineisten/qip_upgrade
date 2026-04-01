@@ -14,6 +14,8 @@ This proposal enhances the Qubic ICO platform to boost investor protection, proj
 - Rich metadata, community thumbs voting, live stats, auto-calculated Trust Score
 
 **New Developments (added refinements):**
+- Limit ICO creation to **Token Issuer Wallet only**.
+- Limit to one ICO per token wallet.
 - Centralized **per-ICO Treasury smart-contract** for all raised funds + revenue streams (enables clawback & dev access)
 - **Optional Clawback / Rug-Pull Protection** with configurable percentage, triggers (vote or inactivity), and **burn-to-claim** refund mechanism (pro-rata QUBIC return after burning tokens — prevents double-dipping)
 - **Early Development Access Tranche** (0–40%, recommended ≤25%) released immediately or time-based to give teams real runway without full lockup risk
