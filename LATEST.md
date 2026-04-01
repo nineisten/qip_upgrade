@@ -7,8 +7,8 @@ This proposal enhances the Qubic ICO platform to boost investor protection, proj
 
 **Core Original Features (from initial outline):**
 - Mandatory 1b Qubic ICO setup fee (seeds SC reserve)
-- Permanent extra 2% dev fund slice from QIP redistributions
-- ICO revenue distribution reduced to 3% 
+- Permanent extra 1% development fund slice from QIP redistributions
+- ICO revenue Shareholder distribution reduced to 2% 
 - Flexible vesting for tokens & revenue (per-wallet configurable)
 - Optional burn of unsold tokens
 - Rich metadata, community thumbs voting, live stats, auto-calculated Trust Score
@@ -28,11 +28,13 @@ These additions directly address key pain points: teams need funds to build deli
 ### A. Mandatory ICO Setup Fee
 - Issuer pays **1 Billion Qubic** when creating an ICO
 - 10% Fee automatically seeds the smart-contract reserve
-- 90% redistributed to SC holders
+- 90% redistributed as SC dividends
+  - 33% Dev fund 
+  - 66% Shareholders  
 
 ### B. Development Fund
-- Add permanent **2%** slice allocated for dev fund
-- reduce **5%** QIP redistributions for SC holders to **3%** 
+- Add permanent **1%** slice allocated for dev fund
+- reduce **5%** QIP redistributions for SC holders to **2%** 
 - Flows to dedicated dev fund wallet for ongoing platform/protocol sustainability
 
 ### C. Treasury & Enhanced Vesting + Clawback + Dev Access
