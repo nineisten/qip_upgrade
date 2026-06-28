@@ -74,3 +74,5 @@ The current QIP contract has limitations in ICO index management, vesting lifecy
 - Richer `getBuyerInfo` output for UI/integrator vesting progress display.
 - Cleaner active-ICO lifecycle via HashSet-based tracking and cleanup.
 
+## Implementation
+https://github.com/qubic/core/pull/932/changes/03b5708c524ca80b87524ddc400cc1234d8cfb09
