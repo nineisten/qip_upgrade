@@ -2,9 +2,9 @@
 
 **Proposer:** NINEISTEN
 
-**Date:** June 21, 2026
+**Date:** June 27, 2026
 
-**Epoch:** 218
+**Epoch:** 219
 
 ## Voting Options
 - **Option 1**: **Approve the QIP upgrades**
