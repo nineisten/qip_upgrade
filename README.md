@@ -1,125 +1,76 @@
+# QIP Upgrade Proposal 
 
-# QIP Upgrade Outline
-**Qubic ICO Portal v2**
+**Proposer:** NINEISTEN
+
+**Date:** June 21, 2026
+
+**Epoch:** 218
+
+## Voting Options
+- **Option 1**: **Approve the QIP upgrades**
+- **Option 0**: Reject the upgrades 
 
 ## Summary
-
-This outline introduces a comprehensive set of enhancements to the Qubic ICO platform aimed at improving trust, transparency, long-term alignment, and ecosystem sustainability. Key additions include:
-
-A mandatory 100M Qubic setup fee that seeds smart-contract liquidity
-A permanent 2.5% developer fund contribution from all QIP redistributions
-Flexible, per-wallet vesting schedules for both tokens and revenue streams
-Optional on-chain token burning of unsold supply
-Rich project metadata, community feedback (thumbs), live dividend visibility, and an automatically calculated Trust Score
-
-Together, these features make it significantly easier for investors to evaluate ICO quality and risk, while giving serious issuers stronger tools to signal commitment and differentiate themselves from low-effort or speculative projects.
-
-### 1. Outline of Upgrades
-
-**A. ICO Setup Fee**  
-- Mandatory 100 million Qubic fee paid by the issuer at ICO creation.  
-- Fee is automatically routed to the smart-contract (SC) reserve to feed execution fees.
-
-**B. Development Fund Allocation**  
-- Add a fixed extra 2.5 % slice to QIP SC redistribution in addition to existing 5%.  
-- This 2.5 % flows to a dedicated Development Fund address/wallet.
-
-**C. Vesting Periods (Optional but per-wallet configurable)**  
-- Applies to both tokens and project revenue wallets.  
-- Pre-defined options: 30 days, 3 months, 6 months, 1 year, 1.5 years + custom duration.  
-- Revenue vesting: releases staggered per epoch; full remaining balance unlocked at end of period.  
-- Token vesting: all unsold/remaining tokens stay locked until the final epoch of the period.  
-- Can be set independently for each participating wallet (issuer can assign different vesting to different wallets including Token issuer wallet).
-
-**D. Optional Burn Mechanism**  
-- At ICO end, instead of returning unsold tokens to the issuer, the contract can send them directly to a designated burn address (configurable at launch).  
-- Burn is irreversible and publicly visible on-chain.
-
-**E. UI + Server API Extensions**  
-- New fields in ICO creation / listing API:  
-  – Token thumbnail (image upload or URL)  
-  – Project links (website, whitepaper, socials, repo)  
-  – Issuer information (name, verified status, bio, contact)  
-  – QIP Share dividend tracking (pulls live stats from QIP contract)  
-  – Enhanced reporting: automatic snapshots of raised Qubic, token distribution, phase-end summaries  
-- User interaction layer:  
-  – Thumbs-up / thumbs-down per ICO (stored server-side, visible to all)  
-- Trust Score (0–100) calculated server-side from weighted factors:  
-  + Clear project descriptions → +  
-  + Vesting > 3 months → +  
-  + Vesting = 3 months → neutral  
-  + Vesting < 3 months (shorter = bigger penalty) → –  
-  + Token burn enabled → +  
-  + Project links provided → +  
-  + Multiple revenue wallets → + (adds transparency)  
-  + No project details → –  
-  + Supply pre-sold on exchange before ICO → –  
-  + Community thumbs-up count → +  
-  + Community thumbs-down count → –  
-
-### 2. User Flow 
-
-```mermaid
-flowchart TD
-    A[Start: Issuer logs into platform] 
-    --> B[Create New ICO]
-
-    B --> C[Upload project details
-• Thumbnail
-• Links & description
-• Issuer information]
-    C --> D[Pay mandatory setup fee
-100 m Qubic → SC reserve]
-
-    D --> E{Optional features}
-    E --> F[Configure vesting
-• Tokens & revenue wallets
-• Periods: 30d / 3mo / 6mo / 1y / 1.5y / custom
-• Staggered epoch release]
-    E --> G[Enable burn mechanism
-Remaining supply → burn address]
-    E --> H[Add multiple revenue wallets - 
-for transparency]
-
-    F & G & H --> I[Review & Launch ICO]
-
-    I --> J[ICO Live on platform]
-
-    J --> K[Investor browses ICO list
-• Sorted/filtered by Trust Score]
-    K --> L[View ICO page
-• Thumbnail + full details
-• Issuer info
-• QIP dividend tracker
-• Phase-end snapshot reports
-• Live thumbs up/down]
-    L --> M[Investor gives thumbs up/down]
-    M --> N[Calculate & display Trust Score
-based on all criteria above]
-    L --> O[Participate → Buy tokens - vesting rules applied per wallet]
-
-    O --> P[ICO ends]
-
-    P --> Q{Post-ICO actions}
-    Q --> R[If burn enabled → remaining tokens burned]
-    Q --> S[Apply vesting schedule
-• Staggered revenue release per epoch
-• Final unlock of remaining tokens]
-    Q --> T[Dev Fund receives extra 2.5 % of any QIP redistributions]
-
-    S & T --> End[End: All parties receive funds/tokens]
+This proposal requests Quorum approval to integrate the QIP (Qubic ICO Portal) upgrades from the following update:
 
 
+## Problem / Opportunity
+The current QIP contract has limitations in ICO index management, vesting lifecycle handling, and exchange-order conflict detection. Active ICO tracking relies on a compact sequential counter, which complicates slot reuse and cleanup. Vesting fund returns and token distribution contain off-by-one epoch errors. There is no protection against creating an ICO while open QX ask orders exist for the same asset. The `getBuyerInfo` function lacks vesting status details needed by frontends and integrators.
 
-```
 
-### Conclusion
+**Key Upgrades Included:**
 
-The proposed upgrades represent a balanced step toward professionalizing the Qubic ICO ecosystem without imposing excessive mandatory restrictions on issuers. By combining on-chain mechanisms (fee → reserve, vesting, burn, dev fund) with off-chain trust signals (metadata, community ratings, Trust Score), the platform can foster higher-quality projects, reduce rug-pull incentives, and increase overall participant confidence.
-If implemented, these changes would likely:
+- **Increased ICO Capacity**:
+  - `QIP_MAX_NUMBER_OF_ICO` raised from **1024** to **16384** concurrent active ICO slots.
 
-Attract more serious teams and long-term-oriented investors
-Improve capital allocation efficiency within the Qubic network
-Create a sustainable funding stream for ongoing protocol & platform development
+- **New Error Codes**:
+  - `QIP_invalidIssuer` (15): invocator is not the token issuer.
+  - `QIP_qxAskOrderFound` (16): open QX ask orders exist for the asset being listed.
 
-Overall, the package offers meaningful investor protection and issuer accountability while preserving the permissionless and innovative spirit of decentralized fundraising on Qubic.
+- **State Management Refactor (`StateData`)**:
+  - Replaced `numberOfICO` with:
+    - `HashSet<uint64, QIP_MAX_NUMBER_OF_ICO> activeIcoIndexes` — tracks currently active ICO indices.
+    - `uint32 currentIcoIndex` — monotonically increasing slot counter for new ICOs.
+  - ICO creation writes to `currentIcoIndex` and registers the index in `activeIcoIndexes`.
+  - Completed ICOs are removed from `activeIcoIndexes` (data remains in the `icos` array).
+  - `activeIcoIndexes.cleanupIfNeeded()` added at end of epoch processing.
+
+- **Enhanced `createICO` Validation**:
+  - **Issuer check**: `qpi.invocator()` must equal `input.issuer`; otherwise returns `QIP_invalidIssuer`.
+  - **QX integration**: calls `QX::AssetAskOrders` via `CALL_OTHER_CONTRACT_FUNCTION`; rejects ICO creation if any open ask order exists (`numberOfShares != 0`), returning `QIP_qxAskOrderFound`.
+  - Overflow check now uses `activeIcoIndexes.population()` instead of `numberOfICO`.
+  - Share transfer validation runs only when `output.returnCode == 0` (after all prior checks pass).
+
+- **Enhanced `getBuyerInfo` Function**:
+  - Output fields renamed: `toReceive` → `tokensToReceive`, `received` → `receivedTokens`.
+  - New output fields: `isVested`, `remainingVestingPeriod`.
+  - `remainingVestingPeriod` is computed when ICO is vested, buyer has not returned funds, and vesting is still in progress.
+  - Removed upper-bound check on `indexOfICO` (relies on direct ICO array lookup).
+
+- **Updated ICO Lookup in Procedures**:
+  - `buyToken`, `returnFunds`: validate ICO existence via `activeIcoIndexes.contains(input.indexOfICO)` instead of `indexOfICO >= numberOfICO`.
+  - `TransferShareManagementRights`: iterates `activeIcoIndexes` HashSet instead of sequential `numberOfICO` loop; blocks share-management transfer only for **non-vested** active ICOs matching the asset (`&& !locals.ico.isVested`).
+
+- **`returnFunds` Bug Fix**:
+  - Vesting penalty epoch offset corrected from `startEpoch - 3` to `startEpoch - 2` in the return amount calculation.
+
+- **`END_EPOCH` Refactor**:
+  - Iterates `activeIcoIndexes` instead of sequential index loop.
+  - Non-vested ICO cleanup: uses `activeIcoIndexes.removeByIndex()` instead of swap-with-last array compaction.
+  - Sets `remainingAmountForPhase3 = 0` after phase 3 ends.
+  - **Vesting cancellation logic**: if all buyers have returned funds (`isVestingCancelled` remains true), skips QU distribution to address2–address10 and returns unreceived tokens to the ICO creator via `transferShareOwnershipAndPossession`.
+  - Handles returned buyers separately: accumulates `tokenAmountToReturn` for unreceived token amounts.
+  - Last vesting distribution epoch adjusted: final token payout triggers at `startEpoch + vestingPeriod + 1` (was `+ 2`).
+  - On final epoch: sets `buyerInfo.received = buyerInfo.toReceive` and keeps entry in HashMap (instead of removing buyer record).
+  - QU address transfers (address2–address10) execute only when vesting is **not** cancelled.
+  - ICO removed from `activeIcoIndexes` at `startEpoch + vestingPeriod + 2`.
+
+## Benefits
+- Supports up to 16× more concurrent active ICOs without index collision issues.
+- Prevents ICO creation conflicts with existing QX exchange orders for the same asset.
+- Ensures only the token issuer can launch an ICO for their asset.
+- Correct vesting epoch math for fund returns and token distribution.
+- Graceful handling of fully cancelled vesting (all investors returned funds).
+- Richer `getBuyerInfo` output for UI/integrator vesting progress display.
+- Cleaner active-ICO lifecycle via HashSet-based tracking and cleanup.
+
